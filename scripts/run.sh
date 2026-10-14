@@ -7,6 +7,8 @@ ROOT="$HERE/.."
 MPT="$ROOT/MoneyPrinterTurbo"
 OUT="$ROOT/out"; mkdir -p "$OUT"
 PY="${PYTHON:-python3.12}"
+# BGM_TYPE=none for a music-free render (default: random track from MoneyPrinterTurbo's library)
+BGM_TYPE="${BGM_TYPE:-random}"
 
 if [ ! -d "$MPT" ]; then
   git clone --depth 1 https://github.com/harry0703/MoneyPrinterTurbo "$MPT"
@@ -38,7 +40,7 @@ python cli.py --video-subject "meditation" --video-script "$SCRIPT" --video-term
   --video-source local --video-materials "$OUT/animation.mp4" \
   --video-concat-mode sequential --video-clip-duration 30 \
   --voice-name "$VOICE" --video-language en-US \
-  --bgm-type random --bgm-volume 0.14 --video-aspect 9:16 \
+  --bgm-type "$BGM_TYPE" --bgm-volume 0.14 --video-aspect 9:16 \
   --font-name BeVietnamPro-Bold.ttf --font-size 84 --stroke-width 5 --stroke-color "#101828" \
   --text-fore-color "#FFE9A8" --subtitle-position custom --custom-position 80 \
   --subtitle-display-mode word_by_word --subtitle-animation pop_spring
