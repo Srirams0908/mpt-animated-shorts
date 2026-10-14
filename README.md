@@ -7,6 +7,8 @@ No stock footage, no photos, no AI-generated images: every frame is drawn by cod
 
 This repo does **not** modify MoneyPrinterTurbo. It clones it at run time and drives its CLI.
 
+**Sample output:** [`docs/sample.mp4`](docs/sample.mp4) (22 s, 1080x1920, narration + captions, no music), rendered from a fresh clone of this repo with `BGM_TYPE=none ./scripts/run.sh`.
+
 ## What's in here
 
 | Path | What it is |
@@ -18,10 +20,11 @@ This repo does **not** modify MoneyPrinterTurbo. It clones it at run time and dr
 
 ## Run it
 
-Requirements: `git`, `ffmpeg`, Python 3.11-3.13. Tested on macOS with Python 3.12.
+Requirements: `git`, `ffmpeg`, Python 3.11-3.13. Tested on macOS with Python 3.12, including a run from a fresh clone.
 
 ```bash
-./scripts/run.sh
+./scripts/run.sh                 # random background track
+BGM_TYPE=none ./scripts/run.sh   # no music
 ```
 
 It clones MoneyPrinterTurbo into `./MoneyPrinterTurbo`, creates a venv, installs dependencies,
